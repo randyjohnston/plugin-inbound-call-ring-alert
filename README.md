@@ -1,9 +1,11 @@
-# Twilio Flex Plugin - Inbound call ring and alert
+# Twilio Flex Plugin - Inbound call ring alert
 
-This twilio Flex Plugin is based on the [plugin-select-ringing-device
- Plugin](https://github.com/twilio-professional-services/plugin-select-ringing-device). It implements two enhancements to alert agents to an incoming call:
-1. Alert agents with by ringing their device with a configurable ringtone
-2. With permission, notify them of an incoming task using the operating system's standard notification mechanism using the [Notifications web API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API) 
+This Twilio Flex Plugin is based on the [plugin-select-ringing-device
+ Plugin](https://github.com/twilio-professional-services/plugin-select-ringing-device). It implements the following:
+
+> Alert agents by ringing their device with a configurable ringtone
+
+**Note**: By default, [Flex supports browser notifications via the Notifications web API](https://www.twilio.com/docs/flex/developer/ui/notifications). 
 
 ## Pre-Requirements
 
@@ -19,7 +21,7 @@ This twilio Flex Plugin is based on the [plugin-select-ringing-device
   twilio plugins:install @twilio-labs/plugin-serverless
   twilio plugins:install @twilio-labs/plugin-flex
   ```
-## Functions & Flex Plugin Setup
+## Flex Plugin Setup
 
 1. Clone this repo:
 
@@ -46,7 +48,7 @@ This twilio Flex Plugin is based on the [plugin-select-ringing-device
   cp public/appConfig.example.js public/appConfig.js
   ```
 
-5. Upload your ringtone MP3 file as a Twilio asset, replacing the :
+5. Upload your ringtone MP3 file as a Twilio asset, replacing the upload path to your local `.mp3` file:
 
   ```bash
   twilio assets:init 

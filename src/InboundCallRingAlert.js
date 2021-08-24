@@ -1,6 +1,4 @@
-import React from 'react';
 import { FlexPlugin } from 'flex-plugin';
-import { Notifications, NotificationType } from "@twilio/flex-ui";
 const PLUGIN_NAME = 'InboundCallRingAlert';
 
 export default class InboundCallRingAlert extends FlexPlugin {
@@ -16,16 +14,11 @@ export default class InboundCallRingAlert extends FlexPlugin {
    * @param manager { import('@twilio/flex-ui').Manager }
    */
   init(flex, manager) {
-    const options = {
-      sortOrder: 0,
-      align: 'end'
-    };
-
     let audio = new Audio(
       process.env.REACT_APP_RINGTONE_URL
     );
 
-    const resStatus = ['accepted', 'canceled', 'rejected', 'rescinded', 'timeout'];
+    const pausableResStatus = ['accepted', 'canceled', 'rejected', 'rescinded', 'timeout'];
 
     manager.workerClient.on('reservationCreated', function (reservation) {
       if (reservation.task.taskChannelUniqueName === 'voice') {
@@ -35,7 +28,7 @@ export default class InboundCallRingAlert extends FlexPlugin {
         audio.play();
       };
 
-      resStatus.forEach((pausableResStatus) => {
+      pausableResStatus.forEach((pausableResStatus) => {
         reservation.on(pausableResStatus, () => {
           audio.pause();
         });
