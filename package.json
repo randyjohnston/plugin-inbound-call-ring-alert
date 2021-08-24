@@ -1,0 +1,17 @@
+{
+  "name": "plugin-inbound-call-ring-alert",
+  "version": "0.0.4",
+  "private": true,
+  "scripts": {
+    "postinstall": "flex-plugin pre-script-check"
+  },
+  "dependencies": {
+    "flex-plugin-scripts": "4.7.5-beta.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@twilio/flex-ui": "^1",
+    "react-test-renderer": "16.13.1"
+  }
+}
